@@ -12,7 +12,7 @@ router.get('/fetchuser', fetchuser, async (req,res)=> {
 })
 
 // ROUTE 2: add note of a user by passing the auth-token  "/api/notes/addnote" . login required
-router.get('/addnote', fetchuser, [
+router.post('/addnote', fetchuser, [
         body('title').isLength({ min: 3 }),
         body('description').isLength({ min: 5 }),
         body('tag').isLength({ min: 3 }),
