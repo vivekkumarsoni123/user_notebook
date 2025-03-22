@@ -1,7 +1,7 @@
 const mongoose=require('mongoose')
 
-// let url="mongodb://localhost:27017/inotebook"
-let url="mongodb://localhost:27017/inotebook";
+
+let url=process.env.MONGO_URL;
 const connecttomongo=async () => {
     try{
         let URL=await mongoose.connect(url)
