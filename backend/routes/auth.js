@@ -67,10 +67,10 @@ router.post('/login', [
 ] , async (req,res)=> {
 
     // if errors occur then return bad errors here itself
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-        return res.status(400).json({errors: errors.array()});
-    }
+    // const errors = validationResult(req);
+    // if (!errors.isEmpty()) {
+    //     return res.status(400).json({errors: errors.array()});
+    // }
     
     const {email,password} = req.body;
     try {

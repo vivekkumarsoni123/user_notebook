@@ -1,4 +1,4 @@
-import AddNote from "./AddNote";
+// import AddNote from "./AddNote";
 import Notes from "./Notes";
 
 //context is likely an object that contains both the current state (notes) and a function (setNotes) to modify that state.
@@ -13,5 +13,5 @@ const Home = () => {
     </>
   );
 };
-
+  
 export default Home;

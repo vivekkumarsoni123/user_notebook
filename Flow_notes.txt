@@ -1,0 +1,6 @@
+What is a Mongoose Model?
+In Mongoose (a MongoDB ODM for Node.js), a model is a structure that defines how data should be stored in MongoDB. It acts as a blueprint for creating and interacting with 
+documents in a specific collection. It consists of schema which define the structure of record in nosql database.
+
+What is ODM (Object-Document Mapping)?
+ODM (Object-Document Mapping) is a technique that allows developers to interact with a NoSQL database like MongoDB using objects in their programming language instead of raw queries.
