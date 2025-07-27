@@ -4,22 +4,15 @@
   "description": "inotebook - your notebook on the cloud",
   "main": "index.js",
   "scripts": {
-<<<<<<< HEAD
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js"
-=======
-    "test": "echo \"Error: no test specified\" && exit 1"
->>>>>>> 0ff13c9ce0d46fc7c036af237508b66719335a44
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
-<<<<<<< HEAD
     "dotenv": "^17.2.1",
-=======
->>>>>>> 0ff13c9ce0d46fc7c036af237508b66719335a44
     "express": "^4.18.2",
     "express-validator": "^7.2.0",
     "jsonwebtoken": "^9.0.2",

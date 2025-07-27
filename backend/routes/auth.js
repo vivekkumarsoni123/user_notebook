@@ -8,7 +8,6 @@ const fetchuser = require('../Middleware/fetchuser');
 
 const jwt_secret = "viveks123$123"
 
-
 // ROUTE 1: create a new user using post: "/api/auth/createuser" . no login required
 router.post('/createuser', [
     body('name').isLength({ min: 3 }),
@@ -57,8 +56,6 @@ router.post('/createuser', [
 
 })
 
-
-
 // ROUTE 2: authenticate a new user using post: "/api/auth/login" . No login required
 router.post('/login', [
     body('email').isEmail(),
@@ -67,17 +64,10 @@ router.post('/login', [
 ] , async (req,res)=> {
 
     // if errors occur then return bad errors here itself
-<<<<<<< HEAD
-    // const errors = validationResult(req);
-    // if (!errors.isEmpty()) {
-    //     return res.status(400).json({errors: errors.array()});
-    // }
-=======
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
         return res.status(400).json({errors: errors.array()});
     }
->>>>>>> 0ff13c9ce0d46fc7c036af237508b66719335a44
     
     const {email,password} = req.body;
     try {
