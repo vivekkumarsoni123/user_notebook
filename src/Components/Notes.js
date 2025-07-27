@@ -54,6 +54,8 @@ const Notes = () => {
   return (
     <>
       <AddNote />
+      
+      {/* Edit Modal */}
       <button
         ref={ref}
         type="button"
@@ -71,10 +73,11 @@ const Notes = () => {
         aria-labelledby="exampleModalLabel"
         aria-hidden="true"
       >
-        <div className="modal-dialog">
-          <div className="modal-content">
-            <div className="modal-header">
-              <h1 className="modal-title fs-5" id="exampleModalLabel">
+        <div className="modal-dialog modal-dialog-centered">
+          <div className="modal-content card-modern">
+            <div className="modal-header border-0 pb-0">
+              <h1 className="modal-title fs-4 fw-bold gradient-text" id="exampleModalLabel">
+                <i className="fas fa-edit me-2"></i>
                 Edit Note
               </h1>
               <button
@@ -87,72 +90,106 @@ const Notes = () => {
             <div className="modal-body">
               <form>
                 <div className="mb-3">
-                  <label htmlFor="title" className="form-label">
+                  <label htmlFor="title" className="form-label fw-medium">
+                    <i className="fas fa-heading me-2 text-primary"></i>
                     Title of Note
                   </label>
                   <input
                     type="text"
-                    className="form-control"
+                    className="form-control border-0 bg-light rounded-3"
                     id="etitle"
                     name="etitle"
                     onChange={onchange}
                     value={note.etitle}
+                    placeholder="Enter note title..."
                   />
                 </div>
 
                 <div className="mb-3">
-                  <label htmlFor="description" className="form-label">
+                  <label htmlFor="description" className="form-label fw-medium">
+                    <i className="fas fa-align-left me-2 text-primary"></i>
                     Description of Note
                   </label>
-                  <input
-                    type="text"
-                    className="form-control"
+                  <textarea
+                    className="form-control border-0 bg-light rounded-3"
                     id="edescription"
                     name="edescription"
                     onChange={onchange}
                     value={note.edescription}
-                  />
+                    rows="4"
+                    placeholder="Enter note description..."
+                  ></textarea>
                 </div>
 
                 <div className="mb-3">
-                  <label htmlFor="tag" className="form-label">
+                  <label htmlFor="tag" className="form-label fw-medium">
+                    <i className="fas fa-tag me-2 text-primary"></i>
                     Tag
                   </label>
                   <input
                     type="text"
-                    className="form-control"
+                    className="form-control border-0 bg-light rounded-3"
                     id="etag"
                     name="etag"
                     onChange={onchange}
                     value={note.etag}
+                    placeholder="Enter tag..."
                   />
                 </div>
               </form>
             </div>
-            <div className="modal-footer">
+            <div className="modal-footer border-0 pt-0">
               <button
                 ref={refClose}
                 type="button"
-                className="btn btn-secondary"
+                className="btn btn-outline-secondary"
                 data-bs-dismiss="modal"
               >
-                Close
+                <i className="fas fa-times me-2"></i>
+                Cancel
               </button>
-              <button type="button" className="btn btn-primary" onClick={handleClick}>
+              <button type="button" className="btn btn-modern" onClick={handleClick}>
+                <i className="fas fa-save me-2"></i>
                 Update Note
               </button>
             </div>
           </div>
         </div>
       </div>
+
+      {/* Notes Display Section */}
       <div className="row">
-        <h2>Your Notes</h2>
-        <div className="container mx-2">
-          {notes.length === 0 && "No notes to display"}
+        <div className="col-12">
+          <div className="d-flex align-items-center justify-content-between mb-4">
+            <h2 className="gradient-text fw-bold mb-0">
+              <i className="fas fa-sticky-note me-3"></i>
+              Your Notes
+            </h2>
+            <div className="d-flex align-items-center">
+              <span className="badge bg-primary rounded-pill me-2">
+                {notes.length} {notes.length === 1 ? 'Note' : 'Notes'}
+              </span>
+            </div>
+          </div>
+          
+          {notes.length === 0 ? (
+            <div className="text-center py-5">
+              <div className="glass-effect p-5 rounded-4 shadow-custom">
+                <i className="fas fa-inbox fa-4x text-muted mb-4"></i>
+                <h4 className="text-dark mb-3">No notes yet!</h4>
+                <p className="text-muted mb-0">
+                  Start creating your first note to get organized
+                </p>
+              </div>
+            </div>
+          ) : (
+            <div className="row g-4">
+              {notes.map((note) => {
+                return <Noteitem key={note._id} updateNote={updateNote} note={note} />;
+              })}
+            </div>
+          )}
         </div>
-        {notes.map((note) => {
-          return <Noteitem key={note._id} updateNote={updateNote} note={note} />;
-        })}
       </div>
     </>
   );

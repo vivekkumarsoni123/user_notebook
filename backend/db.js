@@ -8,7 +8,7 @@ const connecttomongo=async () => {
     console.log("connection established")
     }
     catch(e){
-        console.log("failed");
+        console.log("failed",e);
     }
     
 }

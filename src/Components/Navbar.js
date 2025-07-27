@@ -1,26 +1,26 @@
 import React, { useEffect } from "react";
-import { Link, useLocation } from "react-router-dom"; //'a' with 'Link' and 'href' with 'to'
+import { Link, useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   let navigate = useNavigate();
 
-  const handleLogout= () => {
+  const handleLogout = () => {
     localStorage.removeItem("token");
-    navigate("/login")
-  }
-
-  
+    navigate("/login");
+  };
 
   let location = useLocation();
   useEffect(() => {
     console.log(location.pathname);
   }, [location]);
+
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav className="navbar navbar-expand-lg glass-effect shadow-custom" style={{ margin: '20px', borderRadius: '20px' }}>
       <div className="container-fluid">
-        <Link className="navbar-brand" to="/">
-          iNoteBook
+        <Link className="navbar-brand gradient-text fw-bold fs-3" to="/home" style={{ fontFamily: 'Inter, sans-serif' }}>
+          <i className="fas fa-book-open me-2"></i>
+          E-notebook
         </Link>
         <button
           className="navbar-toggler"
@@ -37,34 +37,47 @@ const Navbar = () => {
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
               <Link
-                className={`nav-link ${
-                  location.pathname === "/" ? "active" : " "
-                } `}
+                className={`nav-link fw-medium ${
+                  location.pathname === "/home" ? "active text-primary" : "text-dark"
+                }`}
                 aria-current="page"
-                to="/"
+                to="/home"
+                style={{ transition: 'all 0.3s ease' }}
               >
+                <i className="fas fa-home me-1"></i>
                 Home
               </Link>
             </li>
             <li className="nav-item">
               <Link
-                className={`nav-link ${
-                  location.pathname === "/about" ? "active" : " "
-                } `}
+                className={`nav-link fw-medium ${
+                  location.pathname === "/about" ? "active text-primary" : "text-dark"
+                }`}
                 to="/about"
+                style={{ transition: 'all 0.3s ease' }}
               >
+                <i className="fas fa-info-circle me-1"></i>
                 About
               </Link>
             </li>
           </ul>
-            {!localStorage.getItem("token") ? (<form className="d-flex" > 
-            <Link type="button" to="/login" className="btn btn-primary mx-1" role="button">
-              Login
-            </Link>
-            <Link type="button" to="/signup" className="btn btn-primary" role="button">
-              Signup
-            </Link>
-          </form>): (<button onClick={handleLogout} className="btn btn-primary">Logout</button>) }
+          {!localStorage.getItem("token") ? (
+            <div className="d-flex gap-2">
+              <Link to="/login" className="btn btn-modern">
+                <i className="fas fa-sign-in-alt me-1"></i>
+                Login
+              </Link>
+              <Link to="/signup" className="btn btn-modern">
+                <i className="fas fa-user-plus me-1"></i>
+                Signup
+              </Link>
+            </div>
+          ) : (
+            <button onClick={handleLogout} className="btn btn-modern">
+              <i className="fas fa-sign-out-alt me-1"></i>
+              Logout
+            </button>
+          )}
         </div>
       </div>
     </nav>
