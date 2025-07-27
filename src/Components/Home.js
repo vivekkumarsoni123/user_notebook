@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React from "react";
 import Notes from "./Notes";
 
@@ -41,22 +40,7 @@ const Home = () => {
         </div>
       </div>
     </div>
-=======
-import AddNote from "./AddNote";
-import Notes from "./Notes";
-
-//context is likely an object that contains both the current state (notes) and a function (setNotes) to modify that state.
-//The useContext hook retrieves this object from the noteContext, making notes and setNotes available in the component where this code is used.
-
-const Home = () => {
-
-  return (
-    <>
-      
-      <Notes/>
-    </>
->>>>>>> 0ff13c9ce0d46fc7c036af237508b66719335a44
   );
 };
-
+  
 export default Home;

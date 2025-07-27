@@ -3,11 +3,7 @@ import NoteContext from "./noteContext";
 import { useState } from "react";
 
 const NoteState = (props)=> {
-<<<<<<< HEAD
     const host = "http://localhost:5000"; 
-=======
-    const host = "https://user-notebook-2.onrender.com/"; 
->>>>>>> 0ff13c9ce0d46fc7c036af237508b66719335a44
     const notesInitial = []
     const [notes, setnotes] = useState(notesInitial);
 
@@ -45,9 +41,6 @@ const NoteState = (props)=> {
 
       }
 
-
-
-
       //Edit a Note
       const editNote= async (id,title,description,tag)=> {
         //API Call
@@ -61,7 +54,6 @@ const NoteState = (props)=> {
         });
         const json =  await response.json();
         console.log(json);
-      
       
         // logic to edit 
         for(let index = 0; index < notes.length; index++) {
@@ -77,7 +69,6 @@ const NoteState = (props)=> {
         setnotes(notes);   
       }
       
-
       //Delete a Note
       const deleteNote= async (id)=> {
         // API Call
@@ -103,8 +94,4 @@ const NoteState = (props)=> {
     )
 }
 
-<<<<<<< HEAD
 export default NoteState;
-=======
-export default NoteState;
->>>>>>> 0ff13c9ce0d46fc7c036af237508b66719335a44
