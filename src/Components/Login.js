@@ -1,15 +1,23 @@
 import React from "react";
 import { useState } from "react";
+<<<<<<< HEAD
 import { useNavigate, Link } from "react-router-dom";
 
 const Login = () => {
   const [credentials, setCredentials] = useState({ email: "", password: "" });
   const [isLoading, setIsLoading] = useState(false);
+=======
+import { useNavigate } from "react-router-dom";
+
+const Login = () => {
+  const [credentials, setCredentials] = useState({ email: "", password: "" });
+>>>>>>> 0ff13c9ce0d46fc7c036af237508b66719335a44
 
   let navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+<<<<<<< HEAD
     setIsLoading(true);
 
     try {
@@ -36,6 +44,29 @@ const Login = () => {
     } finally {
       setIsLoading(false);
     }
+=======
+
+    const response = await fetch(`https://user-notebook-2.onrender.com/api/auth/login`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email: credentials.email,
+        password: credentials.password,
+      }),
+    });
+
+    const json = await response.json();
+    if (json.success) {
+      // Redirect
+      localStorage.setItem("token", json.authtoken);
+      navigate("/"); // Use navigate instead of history.push
+    } else {
+      alert("Invalid Credentials");
+    }
+    console.log(json);
+>>>>>>> 0ff13c9ce0d46fc7c036af237508b66719335a44
   };
 
   const onChange = (e) => {
@@ -43,6 +74,7 @@ const Login = () => {
   };
 
   return (
+<<<<<<< HEAD
     <div className="container-fluid py-5">
       <div className="row justify-content-center">
         <div className="col-lg-5 col-md-7 col-sm-9">
@@ -124,6 +156,45 @@ const Login = () => {
             </div>
           </div>
         </div>
+=======
+    <div>
+      <div className="mt-3">
+        <h2>Login to continue to iNoteBook</h2>
+        <form onSubmit={handleSubmit}>
+          <div className="my-3">
+            <label htmlFor="email" className="form-label">
+              Email address
+            </label>
+            <input
+              type="email"
+              className="form-control"
+              id="email"
+              placeholder="name@example.com"
+              value={credentials.email}
+              name="email"
+              onChange={onChange}
+            />
+          </div>
+          <div className="mb-3">
+            <label htmlFor="password" className="form-label">
+              Password
+            </label>
+            <input
+              type="password"
+              className="form-control"
+              id="password"
+              value={credentials.password}
+              name="password"
+              onChange={onChange}
+              minLength={5}
+              required
+            />
+          </div>
+          <button type="submit" className="btn btn-primary">
+            Submit
+          </button>
+        </form>
+>>>>>>> 0ff13c9ce0d46fc7c036af237508b66719335a44
       </div>
     </div>
   );

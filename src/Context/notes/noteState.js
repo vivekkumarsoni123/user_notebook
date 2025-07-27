@@ -3,7 +3,11 @@ import NoteContext from "./noteContext";
 import { useState } from "react";
 
 const NoteState = (props)=> {
+<<<<<<< HEAD
     const host = "http://localhost:5000"; 
+=======
+    const host = "https://user-notebook-2.onrender.com/"; 
+>>>>>>> 0ff13c9ce0d46fc7c036af237508b66719335a44
     const notesInitial = []
     const [notes, setnotes] = useState(notesInitial);
 
@@ -99,4 +103,8 @@ const NoteState = (props)=> {
     )
 }
 
+<<<<<<< HEAD
 export default NoteState;
+=======
+export default NoteState;
+>>>>>>> 0ff13c9ce0d46fc7c036af237508b66719335a44

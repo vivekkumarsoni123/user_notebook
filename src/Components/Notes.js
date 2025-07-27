@@ -54,8 +54,11 @@ const Notes = () => {
   return (
     <>
       <AddNote />
+<<<<<<< HEAD
       
       {/* Edit Modal */}
+=======
+>>>>>>> 0ff13c9ce0d46fc7c036af237508b66719335a44
       <button
         ref={ref}
         type="button"
@@ -73,11 +76,18 @@ const Notes = () => {
         aria-labelledby="exampleModalLabel"
         aria-hidden="true"
       >
+<<<<<<< HEAD
         <div className="modal-dialog modal-dialog-centered">
           <div className="modal-content card-modern">
             <div className="modal-header border-0 pb-0">
               <h1 className="modal-title fs-4 fw-bold gradient-text" id="exampleModalLabel">
                 <i className="fas fa-edit me-2"></i>
+=======
+        <div className="modal-dialog">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h1 className="modal-title fs-5" id="exampleModalLabel">
+>>>>>>> 0ff13c9ce0d46fc7c036af237508b66719335a44
                 Edit Note
               </h1>
               <button
@@ -90,32 +100,53 @@ const Notes = () => {
             <div className="modal-body">
               <form>
                 <div className="mb-3">
+<<<<<<< HEAD
                   <label htmlFor="title" className="form-label fw-medium">
                     <i className="fas fa-heading me-2 text-primary"></i>
+=======
+                  <label htmlFor="title" className="form-label">
+>>>>>>> 0ff13c9ce0d46fc7c036af237508b66719335a44
                     Title of Note
                   </label>
                   <input
                     type="text"
+<<<<<<< HEAD
                     className="form-control border-0 bg-light rounded-3"
+=======
+                    className="form-control"
+>>>>>>> 0ff13c9ce0d46fc7c036af237508b66719335a44
                     id="etitle"
                     name="etitle"
                     onChange={onchange}
                     value={note.etitle}
+<<<<<<< HEAD
                     placeholder="Enter note title..."
+=======
+>>>>>>> 0ff13c9ce0d46fc7c036af237508b66719335a44
                   />
                 </div>
 
                 <div className="mb-3">
+<<<<<<< HEAD
                   <label htmlFor="description" className="form-label fw-medium">
                     <i className="fas fa-align-left me-2 text-primary"></i>
                     Description of Note
                   </label>
                   <textarea
                     className="form-control border-0 bg-light rounded-3"
+=======
+                  <label htmlFor="description" className="form-label">
+                    Description of Note
+                  </label>
+                  <input
+                    type="text"
+                    className="form-control"
+>>>>>>> 0ff13c9ce0d46fc7c036af237508b66719335a44
                     id="edescription"
                     name="edescription"
                     onChange={onchange}
                     value={note.edescription}
+<<<<<<< HEAD
                     rows="4"
                     placeholder="Enter note description..."
                   ></textarea>
@@ -124,20 +155,35 @@ const Notes = () => {
                 <div className="mb-3">
                   <label htmlFor="tag" className="form-label fw-medium">
                     <i className="fas fa-tag me-2 text-primary"></i>
+=======
+                  />
+                </div>
+
+                <div className="mb-3">
+                  <label htmlFor="tag" className="form-label">
+>>>>>>> 0ff13c9ce0d46fc7c036af237508b66719335a44
                     Tag
                   </label>
                   <input
                     type="text"
+<<<<<<< HEAD
                     className="form-control border-0 bg-light rounded-3"
+=======
+                    className="form-control"
+>>>>>>> 0ff13c9ce0d46fc7c036af237508b66719335a44
                     id="etag"
                     name="etag"
                     onChange={onchange}
                     value={note.etag}
+<<<<<<< HEAD
                     placeholder="Enter tag..."
+=======
+>>>>>>> 0ff13c9ce0d46fc7c036af237508b66719335a44
                   />
                 </div>
               </form>
             </div>
+<<<<<<< HEAD
             <div className="modal-footer border-0 pt-0">
               <button
                 ref={refClose}
@@ -150,12 +196,25 @@ const Notes = () => {
               </button>
               <button type="button" className="btn btn-modern" onClick={handleClick}>
                 <i className="fas fa-save me-2"></i>
+=======
+            <div className="modal-footer">
+              <button
+                ref={refClose}
+                type="button"
+                className="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+              <button type="button" className="btn btn-primary" onClick={handleClick}>
+>>>>>>> 0ff13c9ce0d46fc7c036af237508b66719335a44
                 Update Note
               </button>
             </div>
           </div>
         </div>
       </div>
+<<<<<<< HEAD
 
       {/* Notes Display Section */}
       <div className="row">
@@ -190,6 +249,16 @@ const Notes = () => {
             </div>
           )}
         </div>
+=======
+      <div className="row">
+        <h2>Your Notes</h2>
+        <div className="container mx-2">
+          {notes.length === 0 && "No notes to display"}
+        </div>
+        {notes.map((note) => {
+          return <Noteitem key={note._id} updateNote={updateNote} note={note} />;
+        })}
+>>>>>>> 0ff13c9ce0d46fc7c036af237508b66719335a44
       </div>
     </>
   );

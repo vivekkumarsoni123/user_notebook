@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 require('dotenv').config();
+=======
+>>>>>>> 0ff13c9ce0d46fc7c036af237508b66719335a44
 const connecttomongo = require('./db');
 const express = require('express')
 var cors = require('cors')
