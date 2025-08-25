@@ -1,6 +1,5 @@
-import React from 'react';
 import { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Signup = () => {
   const [credentials, setCredentials] = useState({ 
@@ -12,7 +11,7 @@ const Signup = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [errors, setErrors] = useState({});
 
-  let navigate = useNavigate();
+  // let navigate = useNavigate();
 
   const validateForm = () => {
     const newErrors = {};
