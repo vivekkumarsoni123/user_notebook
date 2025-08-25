@@ -52,7 +52,7 @@ const Signup = () => {
 
     try {
       const { name, email, password } = credentials;
-      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/auth/createuser`, {
+      const response = await fetch(`process.env.REACT_APP_BACKEND_URL/api/auth/createuser`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -152,6 +152,7 @@ const Signup = () => {
                     onChange={onChange}
                     minLength={5}
                     required
+                    autoComplete="new-password"
                   />
                   {errors.password && <div className="invalid-feedback">{errors.password}</div>}
                 </div>
@@ -172,6 +173,7 @@ const Signup = () => {
                     onChange={onChange}
                     minLength={5}
                     required
+                    autoComplete="new-password"
                   />
                   {errors.cpassword && <div className="invalid-feedback">{errors.cpassword}</div>}
                 </div>
