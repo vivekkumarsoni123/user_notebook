@@ -6,7 +6,7 @@ const Signup = () => {
     name: "", 
     email: "", 
     password: "", 
-    cpassword: "" 
+    cpassword:  "" 
   });
   const [isLoading, setIsLoading] = useState(false);
   const [errors, setErrors] = useState({});
@@ -47,7 +47,7 @@ const Signup = () => {
       return;
     }
     
-    setIsLoading(true);
+    setIsLoading(true); 
 
     try {
       const { name, email, password } = credentials;
